@@ -1,11 +1,12 @@
 ---
 layout: page
 title: "About"
-description: "《你是我的梦想》"
+description: "Believe The Process"
 header-img: "img/about-bg.jpg"
-multilingual: true
+multilingual: false
 ---
 
+// 自我介绍
 {% include multilingual-sel.html %}
 
 <!-- Chinese Version -->
@@ -15,10 +16,10 @@ multilingual: true
 </div>
 
 <!-- English Version -->
-<div class="en post-container">
+<!-- <div class="en post-container">
     {% capture about_en %}{% include about/en.md %}{% endcapture %}
     {{ about_en | markdownify }}
-</div>
+</div> -->
 
 
 {% if site.disqus_username %}
