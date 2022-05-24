@@ -107,7 +107,7 @@ private:
 |  nvsize=12, nvalign=8]
 ```
 可以看到，在起始地址是一个8个字节(64位机器)的指针vtable pointer，接着是成员变量m_，这个虚拟指针指向虚函数表，虚函数表类似一个数组，存放了虚函数的地址，内存布局如下：
-![img](/img/virtual_fun_1.png)
+![img](/allowedpage/img/virtual_fun_1.png)
 下面进行验证：
 ```C++
 typedef void(*vir_fun_ptr)(void);
@@ -133,7 +133,7 @@ int main() {
 这样，就验证了对象中虚指针的布局和虚函数表中虚函数的布局。
 
 下面，再看一下存在继承关系时，虚函数是如何动态绑定的，类B继承了类A，其内存布局如下：
-![img](/img/virtual_fun_2.png)
+![img](/allowedpage/img/virtual_fun_2.png)
 类B地址起始处也是虚指针，指向类B的虚函数表，它继承自类A，类B虚函数表的起始地址也存储了类A的fun函数地址，由于类B 重写了类A的fun2()，所以其虚函数表地址偏移1位的地址存储了类B自己的fun2()的函数地址。验证如下：
 ```C++
 typedef void(*vir_fun_ptr)(void);
